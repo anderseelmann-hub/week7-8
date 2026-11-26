@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #333333;
+    --primary-light: #fff4e6;
+    --muted-grey: #7D6F6F;
+    --accent-yellow: #FD8B44;
+    --heading-font: "Playfair Display", serif;
+    --body-font: "Roboto", sans-serif;
+    --sub-font: "Quicksand", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-family: var(--body-font);
+    line-height: 1.5;
+    border-left: 14px solid var(--primary-color);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 24px 56px;
+}
+
+/* Header & pealkirjad */
+.cv-header,
+header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+h1,
+.cv-title {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -0.01em;
+}
+
+.author,
+.cv-subtitle {
+    font-family: var(--sub-font);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--muted-grey);
+    margin-top: 4px;
+}
+
+/* Päise hinnang (tärnid) */
+.rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.rating-stars {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    color: var(--accent-yellow);
+    font-size: 1rem;
+}
+
+.rating-count {
+    font-family: var(--sub-font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted-grey);
+}
+
+/* Pildiala ja tegevusikoonid */
+.image-container {
+    max-width: 360px;
+    margin: 20px auto 0;
+}
+
+.cv-photo-placeholder,
+.recipe-image {
+    width: 100%;
+    height: 165px;
+    background-color: #e6d7c6;
+    border: 1px solid #d5c3b0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-grey);
+    font-size: 2.3rem;
+    overflow: hidden;
+}
+
+.cv-photo-placeholder img,
+.recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.image-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.image-actions-icons {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.15rem;
+    color: var(--primary-color);
+}
+
+.image-actions-icons li {
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.15s ease;
+}
+
+.image-actions-icons li:hover {
+    color: var(--accent-yellow);
+    transform: translateY(-1px);
+}
+
+/* Põhisisu (CV sektsioonid) */
+.main {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.cv-section {
+    margin-bottom: 26px;
+}
+
+h2,
+.main-title,
+.section-heading {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.cv-section p {
+    font-size: 0.88rem;
+    color: var(--primary-color);
+    margin-bottom: 3px;
+}
+
+.section-divider {
+    border: none;
+    border-top: 1px dashed var(--muted-grey);
+    max-width: 260px;
+    margin: 38px auto 40px;
+}
+
+/* Tagasiside vorm ja interaktiivsed tärnid */
+.reviews {
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.review-box textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 12px;
+    border: 1px solid var(--muted-grey);
+    background-color: #ffffff;
+    font-family: var(--body-font);
+    font-size: 0.88rem;
+    color: var(--primary-color);
+    resize: vertical;
+}
+
+.review-box textarea:focus {
+    outline: 2px solid var(--accent-yellow);
+    border-color: var(--accent-yellow);
+}
+
+.review-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.reviews-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.star-rating-input {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+}
+
+.star-rating-input input {
+    display: none;
+}
+
+.star-rating-input label {
+    color: #bfb5b0;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.12s ease;
+}
+
+.star-rating-input label:hover {
+    transform: scale(1.12);
+}
+
+/* Täidab klõpsatud tärni ja kõik sellest vasakule jäävad tärnid */
+.star-rating-input input:checked ~ label {
+    color: var(--accent-yellow);
+}
+
+/* Täidab hiirega üle liikudes vastava tärni ja kõik eelnevad */
+.star-rating-input label:hover,
+.star-rating-input label:hover ~ label {
+    color: var(--accent-yellow);
+}
+
+.review-btn,
+.reviews-btn-container button {
+    padding: 8px 16px;
+    font-family: var(--sub-font);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: #ffffff;
+    border: 1px solid var(--muted-grey);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.review-btn:hover,
+.reviews-btn-container button:hover {
+    background-color: var(--accent-yellow);
+    border-color: var(--accent-yellow);
+    color: #ffffff;
+}
+
+/* Jalus */
+footer,
+.cv-footer {
+    text-align: center;
+    margin-top: 42px;
+}
+
+.social-contact {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.social-icon-link {
+    color: var(--primary-color);
+    font-size: 1.85rem;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.social-icon-link:hover {
+    color: var(--accent-yellow);
+}
+
+.social-label {
+    font-family: var(--sub-font);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.copyright {
+    margin-top: 44px;
+    font-family: var(--sub-font);
+    font-size: 0.78rem;
+    color: var(--muted-grey);
+}
+
+/* Mobiilivaade (kuni 480px) */
+@media (max-width: 480px) {
+    body {
+        border-left-width: 8px;
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 24px 16px 40px;
+    }
+
+    h1,
+    .cv-title {
+        font-size: 2rem;
+    }
+
+    .cv-photo-placeholder,
+    .recipe-image {
+        height: 140px;
+    }
+
+    .section-divider {
+        max-width: 190px;
+        margin: 28px auto 32px;
+    }
+
+    .review-meta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .reviews-stars {
+        justify-content: center;
+    }
+
+    .review-btn,
+    .reviews-btn-container button {
+        width: 100%;
+    }
+}
